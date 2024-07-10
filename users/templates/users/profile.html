@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+ {% if messages %}
+ 
+ {% for m in messages %}
+ 
+ <h1 style="text-align: center;">{{m}}</h1>
+ 
+ {% endfor %}
+ 
+ {% endif %}
+
+
+<div class="container">
+    <h1>User Profile</h1>
+    <p><strong>Name:</strong> {{Balance.user.first_name}} {{Balance.user.last_name}}</p>
+    <p><strong>Current Balance:</strong> {{ Balance.balance }}</p>
+
+    
+    <ul>
+        <div class="container ">
+       <div class="row "style="margin-left: 190px;">
+        <h2 style="text-align: center;">Borrowed Books</h2>
+        <hr>
+        {% for book in borrowed_books %}
+           
+            <div class="col-4">
+                <div class="card mb-3" style="width: 18rem;">
+                    <img  src="{{book.book.image.url}}" class="card-img-top" >
+                    <div class="card-body">
+                        <h5 class="card-title">Title: {{book.book.title}}</h5>
+                        <p class="card-text">Description:{{book.book.description }}</p>
+                        <p class="card-text">Price:{{book.book.borrowing_price}}</p>
+                        <p class="card-text">Category:{{book.book.categories.category_name}}</p>
+                        <a class="btn btn-danger"  href="{% url "return_book" book.pk %}"> Return Book </a>
+                    </div>
+                </div>
+            </div>
+        {% empty %}
+            <li>No borrowed books.</li>
+        {% endfor %}
+    </div>
+</div>
+    </ul>
+
+</div>
+
+{% endblock content %}
+
+
+
+
+

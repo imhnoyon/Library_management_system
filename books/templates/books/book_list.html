@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+{% block content %}
+
+{% if messages %}
+ 
+ {% for m in messages %}
+ 
+ <h1 style="text-align: center;">{{m}}</h1>
+ 
+ {% endfor %}
+ 
+ {% endif %}
+
+
+<div class='col-12 p-3 ' >
+  <h5 style='text-align:center' ><b> All Category</b></h5>
+  <br><br>
+{% for category in categories %}
+
+<a  style="margin-left: 120px;"  class='btn btn-warning text-decoration-none text-white ' href="{% url "books_list" category.slug %}">{{category.category_name}}</a>
+
+{% endfor %}
+</div> 
+<hr>
+<div class='col-10 p-3 '>
+  <p style='text-align:center'>{{books | length}} Results Founds</p>
+  <div class="d-flex flex-wrap  px-5 pt-5">
+<hr>
+
+
+
+
+
+
+<div class="container ">
+  <div class="row "style="margin-left: 190px;">
+      {% for i in books %}
+      <div class="col-4">
+          <div class="card mb-3" style="width: 18rem;">
+              <img  src="{{i.image.url}}" class="card-img-top" >
+              <div class="card-body">
+                  <h5 class="card-title">Title: {{i.title}}</h5>
+                  <p class="card-text">Description:{{i.description }}</p>
+                  <p class="card-text">Price:{{i.borrowing_price}}</p>
+                  <p class="card-text">Category:{{i.categories.category_name}}</p>
+                  <a href="{% url "book_details" i.pk %}" class="btn btn-warning " style="margin-left: 50px;">View Details</a>
+              </div>
+          </div>
+      </div>
+      {% endfor %}
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock content %}

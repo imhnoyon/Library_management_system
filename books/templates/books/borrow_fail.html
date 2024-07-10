@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="container">
+    <h1>Borrowing Failed</h1>
+    <p>Sorry, you do not have enough balance to borrow the book <strong>{{ book.title }}</strong>.</p>
+    <p>Your current balance is: {{ balance }}</p>
+    <p>The borrowing price for this book is: {{ book.borrowing_price }}</p>
+    <a href="">Back to Book List</a> # url 'book_list' 
+
+</div>
+
+{% endblock content %}
+
+
+

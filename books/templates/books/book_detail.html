@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block content %}
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-6">
+            <img src="{{ book.image.url }}"  class="img-fluid">
+        </div>
+        <div class="col-md-6">
+            <h1>{{ book.title }}</h1>
+            <p>{{ book.description }}</p>
+            <p><strong>Price:</strong>{{book.borrowing_price}}</p>
+            <p><strong>Category:</strong>{{book.categories.category_name}}</p>  
+            <a href="{% url "borrow_book" book.pk %}" class="btn btn-primary">Buy Now</a>
+            <a href="{% url "review_book" book.pk %}" class="btn btn-success">Review_book</a>
+          
+        </div>
+    </div>
+</div>
+
+
+
+<h2>Reviews</h2>
+    {% if reviews %}
+        <ul>
+            {% for review in reviews %}
+                <li>
+                    <h6>{{ review.user.first_name }} {{ review.user.last_name }}</h6> <strong>{{ review.review_text }} </strong>
+                     <em>({{review}})</em> <strong>Rating:{{review.rating}} </strong>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No reviews yet.</p>
+    {% endif %}
+
+
+
+
+
+
+{% endblock content %}
