@@ -2,10 +2,15 @@
 {% load crispy_forms_tags %}
 {% block content %}
 
- 
+{% if form.non_field_errors %} {% for error in form.non_field_errors %}
+<div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mt-2" role="alert">
+    <p class="font-bold">Error!</p>
+    <p class="block sm:inline">{{ error }}</p>
+</div>
+{% endfor %} {% endif %}
 
  <form  style="width: 40%;margin: auto;" method="post">
-    <h3>{{type}} Form</h3>
+    <h3>Login Form</h3>
     {% csrf_token %}
     <!-- {{form | crispy }} -->
     {% for fm in form %} 
