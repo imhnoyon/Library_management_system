@@ -107,7 +107,7 @@ WSGI_APPLICATION = 'Library_Management_System.wsgi.application'
 # Database documentation https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
 DATABASES = {
-    'default': dj_database_url.config('postgresql://library_management_system_fn16_user:0zDVfirFWrxX73Ibbt1Zj0LVQY5G0Col@dpg-cq77iq08fa8c7386fc3g-a.oregon-postgres.render.com/library_management_system_fn16')
+    'default': dj_database_url.config(default='postgresql://library_management_system_fn16_user:0zDVfirFWrxX73Ibbt1Zj0LVQY5G0Col@dpg-cq77iq08fa8c7386fc3g-a.oregon-postgres.render.com/library_management_system_fn16')
     }
 
 
