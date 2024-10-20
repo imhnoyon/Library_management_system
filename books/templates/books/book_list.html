@@ -17,7 +17,7 @@
   <br><br>
 {% for category in categories %}
 
-<a  style="margin-left: 120px;"  class='btn btn-warning text-decoration-none text-white ' href="{% url "books_list" category.slug %}">{{category.category_name}}</a>
+<a  style="margin-left: 350px;"  class='btn btn-warning text-decoration-none text-white ' href="{% url "books_list" category.slug %}">{{category.category_name}}</a>
 
 {% endfor %}
 </div> 
@@ -50,16 +50,6 @@
       {% endfor %}
   </div>
 </div>
-
-
-
-
-
-
-
-
-
-
 
 
 
